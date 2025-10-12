@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Image from "next/image";
 
@@ -20,7 +19,7 @@ export default function Home() {
   };
 
   // Function to encode the query parameters for the mailto link
-  const encodeQueryParams = (params) => {
+  const encodeQueryParams = (params: Record<string, string>) => {
     return Object.entries(params)
       .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
       .join("&");
@@ -70,14 +69,14 @@ export default function Home() {
               <textarea
                 className="form-control"
                 id="comments"
-                rows="3"
+                rows={3}
                 value={comments}
                 onChange={handleCommentsChange}
               ></textarea>
             </div>
-            <button type="button" className="btn btn-primary" href={mailtoLink}>
+            <a href={mailtoLink} className="btn btn-primary">
               Send
-            </button>
+            </a>
           </form>
         </div>
       </div>
